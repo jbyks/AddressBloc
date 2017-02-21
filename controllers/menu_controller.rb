@@ -42,6 +42,7 @@ class MenuController
       when 6
         system "clear"
         view_entries_by_number
+        main_menu
       else
         system "clear"
         puts "Sorry, that is not a valid input."
@@ -63,10 +64,13 @@ class MenuController
   def view_entries_by_number
     print "What entry number would you like to see: "
 
-    selection = gets.chomp
+    selection = gets.chomp.to_i
 
     if selection.is_a?(Integer) && selection > 0 && selection <= address_book.entries.length
-      puts "You chose entry nubmer #{selection}"
+      puts address_book.entries[selection]
+      puts "press enter to return to main menu"
+      gets.chomp
+      system "clear"
     else
       puts "This is not a valid input number."
       view_entries_by_number
