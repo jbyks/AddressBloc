@@ -14,6 +14,7 @@ class MenuController
     puts "3 - Search for an entry"
     puts "4 - Import entries from a CSV"
     puts "5 - Exit"
+    puts "6 - Crush, Kill and Destroy"
     print "Enter your selection: "
 
     selection = gets.to_i
@@ -38,6 +39,10 @@ class MenuController
       when 5
         puts "Good-bye!"
         exit(0)
+      when 6
+        system "clear"
+        destroy_all
+        main_menu
       else
         system "clear"
         puts "Sorry, that is not a valid input."
@@ -105,6 +110,12 @@ class MenuController
     else
       puts "No mach found for #{name}"
     end
+  end
+
+  def destroy_all #destroys entire addressbook
+    puts "Ok Sir, see you in hell!"
+    address_book.cknd
+    puts "Addressbook deleted"
   end
 
   def search_submenu(entry)
@@ -178,5 +189,4 @@ class MenuController
         entry_submenu(entry)
     end
   end
-
 end

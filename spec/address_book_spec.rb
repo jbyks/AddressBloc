@@ -109,4 +109,11 @@ RSpec.describe AddressBook do
       expect(entry).to be_nil
     end
   end
+  describe "#cknd" do
+    it "deletes all entries" do
+      book.import_from_csv("entries.csv")
+      book.cknd
+      expect(book.entries).to eq([])
+    end
+  end
 end

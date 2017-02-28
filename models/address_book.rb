@@ -43,4 +43,9 @@ class AddressBook
     end
     return nil
   end
+  def cknd
+    while entries.length > 0 do
+      entries.delete_at(0)
+    end
+  end
 end
